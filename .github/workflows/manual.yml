@@ -14,9 +14,27 @@ on:
         description: A cheerful word  # 入力パラメータの概要
 
 jobs:
-  run:
-    runs-on: ubuntu-latest   # ジョブを実行するOSを指定
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Print greeting
-        run: echo "${{ github.event.inputs.greeting }}"  # 正しくgreetingの入力を参照
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Development
+        if: ${{ github.event.inputs.environment == 'info' }}
+        run: |
+          echo "Deploying to Development environment"
+          # 実際のデプロイコマンドや処理を追加
+
+      - name: Deploy to Staging
+        if: ${{ github.event.inputs.environment == 'warn' }}
+        run: |
+          echo "Deploying to Staging environment"
+          # 実際のデプロイコマンドや処理を追加
+
+      - name: Deploy to Production
+        if: ${{ github.event.inputs.environment == 'error' }}
+        run: |
+          echo "Deploying to Production environment"
+          # 実際のデプロイコマンドや処理を追加

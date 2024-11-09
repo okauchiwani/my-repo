@@ -1,0 +1,18 @@
+name: Manual          # ワークフロー名
+
+on:
+  workflow_dispatch:  # 手動実行イベント
+    inputs:
+      greeting:         # 入力パラメータ名
+        type: string      # データ型(文字列)
+        default: Hello    # 入力パラメータのデフォルト値
+        required: true    # 入力パラメータの必須フラグ
+        description: A cheerful word  # 入力パラメータの概要
+
+jobs:
+  run:
+    runs-on: ubuntu-latest   # ジョブを実行するOSを指定
+
+    steps:
+      - name: Print greeting
+        run: echo "${{ github.event.inputs.greeting }}"  # 正しくgreetingの入力を参照

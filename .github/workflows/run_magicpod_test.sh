@@ -9,16 +9,17 @@
 # unzip -q ${FILENAME}.zip
 
 # MagicPodで使う各種環境変数を設定
-export MAGICPOD_ORGANIZATION=<MagicPod組織名>
-export MAGICPOD_PROJECT=<MagicPodプロジェクト名>
+export MAGICPOD_ORGANIZATION=SNKRDUNK
+export MAGICPOD_PROJECT=SNKRDUNK-APP
 
 # 先ほど作成したappファイルをMagicPodにアップロードして、FILE_NOを取得
 # APP_PATH=<作成したアプリファイルを格納する任意のディレクトリ (例:magicpod_created_app)>/Build/Products/Debug-iphonesimulator/magic_pod_demo_app.app
 # FILE_NO=$(./magicpod-api-client upload-app -a ${APP_PATH})
 
 # 先ほどアップロードしたアプリと、一括実行設定番号を使ってテスト一括実行
-TEST_SETTING_NUMBER=<MagicPod一括実行設定番号>
-./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
+TEST_SETTING_NUMBER=23
+#./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
+./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"46\"}"
 
 # テストが成功した場合はアップロードしたアプリは削除(任意)
 # if [ $? = 0 ]; then

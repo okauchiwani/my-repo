@@ -17,10 +17,13 @@ export MAGICPOD_PROJECT=SNKRDUNK-APP
 # FILE_NO=$(./magicpod-api-client upload-app -a ${APP_PATH})
 
 # 先ほどアップロードしたアプリと、一括実行設定番号を使ってテスト一括実行
-TEST_SETTING_NUMBER=23
-FILE_NO=46
+#TEST_SETTING_NUMBER=23
+#FILE_NO=46
 #./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
-./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
+#./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
+
+SECRET_API_TOKEN="f5b084696c832db763e17a1009bc698d1a67f338"
+./magicpod-api-client batch-run -t ${SECRET_API_TOKEN} -o SNKRDUNK -p SNKRDUNK-APP -S 23
 
 # テストが成功した場合はアップロードしたアプリは削除(任意)
 # if [ $? = 0 ]; then

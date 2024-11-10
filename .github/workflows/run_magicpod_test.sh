@@ -18,8 +18,9 @@ export MAGICPOD_PROJECT=SNKRDUNK-APP
 
 # 先ほどアップロードしたアプリと、一括実行設定番号を使ってテスト一括実行
 TEST_SETTING_NUMBER=23
+FILE_NO=46
 #./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
-./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"46\"}"
+./magicpod-api-client batch-run -S ${TEST_SETTING_NUMBER} -s "{\"app_file_number\":\"${FILE_NO}\"}"
 
 # テストが成功した場合はアップロードしたアプリは削除(任意)
 # if [ $? = 0 ]; then
